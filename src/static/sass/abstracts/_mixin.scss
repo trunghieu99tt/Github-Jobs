@@ -1,0 +1,132 @@
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin centerInDiv {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERY MANAGER
+/*
+
+0 - 600px: phone
+600-900: tablet portrait
+900-1200: tablet landscape
+1200-1800: normal style
+1800+: big desktop
+  
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+1em = 16px
+
+*/
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media (max-width: 37.5em) {
+			// 600px
+			@content;
+		}
+	}
+	@if $breakpoint == tab-port {
+		@media (max-width: 56.25em) {
+			// 900px
+			@content;
+		}
+	}
+	@if $breakpoint == tab-land {
+		@media (max-width: 75em) {
+			// 1200px
+			@content;
+		}
+	}
+	@if $breakpoint == big-desktop {
+		@media (max-width: 112.5em) {
+			// 1800px
+			@content;
+		}
+	}
+}
+
+// Cut text with number of $line, text-overflow will be truncted with '...'
+@mixin truncateLine($line) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	line-clamp: $line;
+	-webkit-line-clamp: $line;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+@mixin box($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin flex-center-column {
+	@include flex-center;
+	flex-direction: column;
+}
+
+@mixin flex-center-vert {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-center-horiz {
+	display: flex;
+	justify-content: center;
+}
+
+@mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+	font-size: $font-size * 1px;
+	// font-size: $font-size * 0.1rem;
+	// example using rem values and 62.5% font-size so 1rem = 10px
+
+	@if $line-height==normal {
+		line-height: normal;
+	} @else {
+		line-height: $line-height / $font-size;
+	}
+
+	@if $letter-spacing==normal {
+		letter-spacing: normal;
+	} @else {
+		letter-spacing: #{$letter-spacing / $font-size}em;
+	}
+}
+
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+	@font-face {
+		font-family: quote($font-name);
+		src: url($path + ".eot");
+		src: url($path + ".eot?#iefix") format("embedded-opentype"),
+			url($path + ".woff") format("woff"),
+			url($path + ".ttf") format("truetype"),
+			url($path + ".svg##{$font-name}") format("svg");
+		font-weight: $weight;
+		font-style: $style;
+	}
+}

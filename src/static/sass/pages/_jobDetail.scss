@@ -1,0 +1,161 @@
+.jobDetail {
+    animation: fadeIn 1s ease forwards;
+
+    display: flex;
+
+    @include respond(phone) {
+        flex-direction: column;
+    }
+
+    &-sideBar {
+        width: 20%;
+        flex-shrink: 0;
+
+        @include respond(phone) {
+            width: 100%;
+            margin-bottom: 36px;
+        }
+    }
+
+    &-main {
+        flex: 1;
+        margin-left: 75px;
+
+        @include respond(phone) {
+            margin-left: 0;
+        }
+    }
+
+    &-goBack {
+        display: flex;
+        align-items: center;
+        margin-bottom: 36px;
+        cursor: pointer;
+
+        img {
+            flex-shrink: 0;
+        }
+
+        figcaption {
+            font-family: Poppins;
+            font-weight: 500;
+            font-size: 14px;
+            color: #1e86ff;
+            margin-left: 15px;
+        }
+    }
+
+    &-apply {
+        &__title {
+            font-family: Poppins;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #b9bdcf;
+            margin-bottom: 16px;
+        }
+
+        &__content {
+            font-family: Poppins;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #334680;
+            word-break: break-all;
+        }
+    }
+
+    &__description {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        @include respond(phone) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        color: #334680;
+    }
+
+    &__type {
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 12px;
+        color: #334680;
+        padding: 6px 8px;
+        border: 1px solid #334680;
+        display: inline-block;
+        border-radius: 4px;
+        margin-left: 17px;
+
+        @include respond(phone) {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+
+    &-date {
+        display: flex;
+        align-items: center;
+        margin-bottom: 35px;
+
+        &__text {
+            font-family: Roboto;
+            font-weight: 500;
+            font-size: 12px;
+            color: #b7bcce;
+            margin-left: 9px;
+        }
+    }
+
+    &-company {
+        display: flex;
+
+        &__logo {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            margin-right: 12px;
+        }
+
+        &__name {
+            font-family: Roboto;
+            font-weight: bold;
+            font-size: 18px;
+            color: #334680;
+            margin-bottom: 10px;
+        }
+
+        &__location {
+            display: flex;
+            align-items: center;
+
+            img {
+                width: 15px;
+                height: 15px;
+                margin-right: 7.5px;
+            }
+
+            figcaption {
+                font-family: Roboto;
+                font-weight: 500;
+                font-size: 12px;
+                color: #b9bdcf;
+            }
+        }
+    }
+
+    &__detail {
+        margin-top: 32px;
+        font-family: Roboto;
+        font-size: 16px;
+        line-height: 150%;
+        color: #334680;
+    }
+}

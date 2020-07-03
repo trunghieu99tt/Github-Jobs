@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    // This defines what 1rem is
+    font-size: 62.5%; // 1rem = 10px;
+
+    @include respond(big-desktop) {
+        font-size: 62.5%; // 1rem = 12px
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%; // 1rem = 9px ,
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px
+    }
+}
+
+body {
+    box-sizing: border-box;
+    background-color: $bg-color;
+}
+
+*:focus {
+    outline: none;
+}

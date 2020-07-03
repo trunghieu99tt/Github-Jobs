@@ -1,0 +1,33 @@
+.page-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    margin-top: 32px;
+    min-height: 95vh;
+    position: relative;
+
+    @include respond(tab-land) {
+        margin: 12px 20px;
+    }
+}
+
+.page__title {
+    font-family: Poppins;
+    font-size: 24px;
+    color: $text-color-1;
+    font-weight: normal;
+    margin-bottom: 32px;
+}
+
+.page-footer {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+
+    p {
+        font-family: Montserrat;
+        font-weight: 600;
+        font-size: 14px;
+        color: #b9bdcf;
+    }
+}
